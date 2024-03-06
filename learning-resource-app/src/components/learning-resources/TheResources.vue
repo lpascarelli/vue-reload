@@ -12,8 +12,6 @@
 import AddResource from './AddResource.vue';
 import StoredResources from './StoredResources.vue';
 
-// Test
-
 export default {
   components: {
     AddResource,
