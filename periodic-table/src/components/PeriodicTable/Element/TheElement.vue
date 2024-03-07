@@ -10,11 +10,6 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  data() {
-    return {
-      selectedBlock: ''
-    }
-  },
   props: {
     name: {
       type: String,
@@ -35,16 +30,6 @@ export default defineComponent({
       type: String,
     },
   },
-  methods: {
-    setBackgroundBlock(block) {
-      this.selectedBlock = block;
-    }
-  },
-  computed: {
-    addBackground() {
-      return this.selectedBlock === this.block ? `element bg-${this.selectedBlock}` : 'element'; 
-    }
-  }
 })
 </script>
 

@@ -53,4 +53,4 @@ button {
   height: 32px;
   cursor: pointer;
 }
-</style>./components/PeriodicTable/PeriodicTable.vue
+</style>
