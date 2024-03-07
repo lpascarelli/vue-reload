@@ -1,5 +1,5 @@
 <template>
-  <div :class="addBackground" @click="setBackgroundBlock(block)">
+  <div :style="{ gridRow: row, gridColumn: column }">
     <small class='number'>{{ atomicNumber }}</small>
     <strong class='symbol'>{{ symbol }}</strong>
     <small class='name'>{{ name }}</small>
@@ -11,20 +11,22 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   data() {
-    selectedBlock: ''
+    return {
+      selectedBlock: ''
+    }
   },
   props: {
     name: {
       type: String,
     },
     row: {
-      type: String,
+      type: Number,
     },
     column: {
-      type: String,
+      type: Number,
     },
     atomicNumber: {
-      type: String,
+      type: Number,
     },
     symbol: {
       type: String,
@@ -40,7 +42,7 @@ export default defineComponent({
   },
   computed: {
     addBackground() {
-      return this.selectedBlock === block ? `element bg-${this.selectedBlock}` : 'element'; 
+      return this.selectedBlock === this.block ? `element bg-${this.selectedBlock}` : 'element'; 
     }
   }
 })

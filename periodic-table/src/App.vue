@@ -1,14 +1,36 @@
 <template>
   <div class='app'>
-    <p>Hello world</p>
-    <button>Click me</button>
-    <!-- <PeriodicTable periodicTableData={periodicTableData} /> -->
-    </div>
+    <button @click="invertBidirectionally">Click me</button>
+    <periodic-table :periodicTableData="periodicTableData" />
+  </div>
 </template>
 
 <script>
-export default {
+import data from './periodic-table-data.json';
 
+import PeriodicTable from './components/PeriodicTable/PeriodicTable.vue';
+import { getInvertedPeriodicTable } from './utils';
+
+export default {
+  components: {
+    PeriodicTable,
+  },
+  data() {
+    return {
+      periodicTableData: data,
+      isInverted: false,
+    }
+  },
+  methods: {
+    invertBidirectionally() {
+      this.isInverted = !this.isInverted;
+      if (this.isInverted) {
+        this.periodicTableData = getInvertedPeriodicTable(data);
+      } else {
+        this.periodicTableData = data;
+      }
+    }
+  },
 }
 </script>
 
@@ -31,4 +53,4 @@ button {
   height: 32px;
   cursor: pointer;
 }
-</style>
+</style>./components/PeriodicTable/PeriodicTable.vue
